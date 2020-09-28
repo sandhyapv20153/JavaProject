@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-09-27T16:31:04 CDT" name="FunctionalSuite" finished-at="2020-09-27T16:32:35 CDT" duration-ms="91270">
+    <groups>
+    </groups>
+    <test started-at="2020-09-27T16:31:04 CDT" name="Functional-CreateAndValidateOfferTests" finished-at="2020-09-27T16:32:12 CDT" duration-ms="67695">
+      <class name="webapp.tests.CreateAndValidateOfferTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:webapp.tests.CreateAndValidateOfferTests@7748410a]" started-at="2020-09-27T16:31:04 CDT" name="setUp" finished-at="2020-09-27T16:31:19 CDT" duration-ms="14765" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="CreateOfferTest(java.lang.String)[pri:0, instance:webapp.tests.CreateAndValidateOfferTests@7748410a]" started-at="2020-09-27T16:31:19 CDT" name="CreateOfferTest" finished-at="2020-09-27T16:31:50 CDT" duration-ms="30910" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2500]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateOfferTest -->
+        <test-method signature="ValidateOfferTests()[pri:0, instance:webapp.tests.CreateAndValidateOfferTests@7748410a]" started-at="2020-09-27T16:31:50 CDT" name="ValidateOfferTests" finished-at="2020-09-27T16:32:11 CDT" duration-ms="21353" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateOfferTests -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:webapp.tests.CreateAndValidateOfferTests@7748410a]" started-at="2020-09-27T16:32:11 CDT" name="afterTest" finished-at="2020-09-27T16:32:12 CDT" duration-ms="432" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- webapp.tests.CreateAndValidateOfferTests -->
+    </test> <!-- Functional-CreateAndValidateOfferTests -->
+    <test started-at="2020-09-27T16:32:12 CDT" name="Functional-CheckYourRateMandatoryFieldTests" finished-at="2020-09-27T16:32:23 CDT" duration-ms="11360">
+      <class name="webapp.tests.CheckYourRateTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:webapp.tests.CheckYourRateTests@76f2bbc1]" started-at="2020-09-27T16:32:12 CDT" name="setUp" finished-at="2020-09-27T16:32:22 CDT" duration-ms="10156" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="VerifyMandatoryFields()[pri:0, instance:webapp.tests.CheckYourRateTests@76f2bbc1]" started-at="2020-09-27T16:32:22 CDT" name="VerifyMandatoryFields" finished-at="2020-09-27T16:32:23 CDT" duration-ms="573" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyMandatoryFields -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:webapp.tests.CheckYourRateTests@76f2bbc1]" started-at="2020-09-27T16:32:23 CDT" name="afterTest" finished-at="2020-09-27T16:32:23 CDT" duration-ms="610" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- webapp.tests.CheckYourRateTests -->
+    </test> <!-- Functional-CheckYourRateMandatoryFieldTests -->
+    <test started-at="2020-09-27T16:32:23 CDT" name="Functional-APITests" finished-at="2020-09-27T16:32:35 CDT" duration-ms="11837">
+      <class name="webservice.tests.APITests">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:webservice.tests.APITests@44a7bfbc]" started-at="2020-09-27T16:32:23 CDT" name="beforeTest" finished-at="2020-09-27T16:32:23 CDT" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="apiInvalidParameterTest(java.lang.String)[pri:0, instance:webservice.tests.APITests@44a7bfbc]" started-at="2020-09-27T16:32:23 CDT" name="apiInvalidParameterTest" finished-at="2020-09-27T16:32:30 CDT" duration-ms="6135" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[TestUser]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiInvalidParameterTest -->
+        <test-method signature="apiSuccessfulResponseTest(java.lang.String)[pri:0, instance:webservice.tests.APITests@44a7bfbc]" started-at="2020-09-27T16:32:30 CDT" name="apiSuccessfulResponseTest" finished-at="2020-09-27T16:32:34 CDT" duration-ms="4002" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[coding.challenge.login@upgrade.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiSuccessfulResponseTest -->
+        <test-method signature="apiValidStatusResponseTest(java.lang.String)[pri:0, instance:webservice.tests.APITests@44a7bfbc]" started-at="2020-09-27T16:32:34 CDT" name="apiValidStatusResponseTest" finished-at="2020-09-27T16:32:35 CDT" duration-ms="1655" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[coding.challenge.login@upgrade.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apiValidStatusResponseTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:webservice.tests.APITests@44a7bfbc]" started-at="2020-09-27T16:32:35 CDT" name="afterTest" finished-at="2020-09-27T16:32:35 CDT" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- webservice.tests.APITests -->
+    </test> <!-- Functional-APITests -->
+  </suite> <!-- FunctionalSuite -->
+</testng-results>

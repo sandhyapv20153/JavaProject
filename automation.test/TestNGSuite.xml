@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="FunctionalSuite" verbose="1" preserve-order="true">
+   
+  <test name="Functional-CreateAndValidateOfferTests" preserve-order="true">
+   <parameter name = "rateValue" value="2500"/>
+     <classes>
+      <class name="webapp.tests.CreateAndValidateOfferTests"/>
+    </classes>
+  </test>
+
+  <test name="Functional-APITests" preserve-order="true">
+    <parameter name = "userNameValid" value="coding.challenge.login@upgrade.com"/>
+    <parameter name = "userNameInvalid" value="TestUser"/>
+    <classes>
+	      <class name="webservice.tests.APITests"/>
+    </classes>
+  </test>
+</suite>
