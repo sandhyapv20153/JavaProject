@@ -3,45 +3,70 @@ package pageobjects;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class SignInPO {
 	
-	private WebElement elem;
-	private WebDriver driver;
-	private String signInButtonLocatorText="//button[@data-auto='login']";
+	@FindBy(name= "username")
+	WebElement UserName;
 	
-	public SignInPO(WebDriver driver) throws MalformedURLException
+	@FindBy(name = "password")
+	WebElement Password;
+	
+	@FindBy(xpath="//button[@data-auto='login']")
+	WebElement SignInButton;
+		
+	public WebDriver driver;
+	public WebDriverWait wait;
+	
+	public SignInPO(WebDriver driver)
 	{
 		this.driver = driver;
-		waitForElement(signInButtonLocatorText);
+		wait = new WebDriverWait(driver,30);
+		PageFactory.initElements(driver, this);
+		waitForElements();
 	}
 	
-
-	public WebElement getUserNameTextLocator(){
-		elem = driver.findElement(By.name("username"));
-		return elem;
-	}
-	
-	public WebElement getPasswordTextLocator(){
-		elem = driver.findElement(By.name("password"));
-		return elem;
-	}
-	
-
-	public WebElement getSignInButtonLocator(){
-		elem = driver.findElement(By.xpath("//button[@data-auto='login']"));
-		return elem;
-	}
-	
-	public void waitForElement(String Text)
+	public WebElement UserName()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Text)));
+		return UserName;
 	}
 	
+	public WebElement Password()
+	{
+		return Password;
+	}
+	
+	public WebElement SignInButton()
+	{
+		return SignInButton;
+	}
+	
+	public void setUserName(String uName)
+	{
+		UserName.sendKeys(uName);
+	}
+	
+	public void setPassword(String passWord) 
+	{
+		Password.sendKeys(passWord);
+	}
+	
+	public void clickSignInButton()
+	{
+		SignInButton.sendKeys(Keys.ENTER);;
+	}
+	
+	public void waitForElements()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(SignInButton));
+	}
+		
 	
 }

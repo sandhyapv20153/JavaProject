@@ -5,7 +5,8 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
     <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -23,6 +24,7 @@
   <body>
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
       <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
@@ -49,12 +51,12 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-FunctionalSuite" class="navigator-link ">
-                    <span>C:\GitExcercises\Upgrade\UpgradeFramework\automation.test\TestNGSuite.xml</span>
+                    <span>C:\GitExcercises\Upgrade\JavaProject\automation.test\TestNGSuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" panel-name="testlist-FunctionalSuite" class="navigator-link ">
-                    <span class="test-stats">3 tests</span>
+                    <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">6 methods,   6 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,31 +105,6 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-FunctionalSuite" title="webapp.tests.CreateAndValidateOfferTests" class="method navigator-link" hash-for-method="CreateOfferTest(2500)">CreateOfferTest(2500)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-FunctionalSuite" title="webapp.tests.CreateAndValidateOfferTests" class="method navigator-link" hash-for-method="ValidateOfferTests">ValidateOfferTests</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-FunctionalSuite" title="webapp.tests.CheckYourRateTests" class="method navigator-link" hash-for-method="VerifyMandatoryFields">VerifyMandatoryFields</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-FunctionalSuite" title="webservice.tests.APITests" class="method navigator-link" hash-for-method="apiInvalidParameterTest(TestUser)">apiInvalidParameterTest(TestUser)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-FunctionalSuite" title="webservice.tests.APITests" class="method navigator-link" hash-for-method="apiSuccessfulResponseTest(coding.challenge.login@upgrade.com)">apiSuccessfulResponseTest(coding.challenge.login@upgrade.com)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-FunctionalSuite" title="webservice.tests.APITests" class="method navigator-link" hash-for-method="apiValidStatusResponseTest(coding.challenge.login@upgrade.com)">apiValidStatusResponseTest(coding.challenge.login@upgrade.com)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-FunctionalSuite -->
@@ -156,66 +133,12 @@
                   <span class="parameters">(2500)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ValidateOfferTests">
-                  </a> <!-- ValidateOfferTests -->
-                  <span class="method-name">ValidateOfferTests</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-FunctionalSuite-class-passed -->
-          <div class="suite-FunctionalSuite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">webapp.tests.CheckYourRateTests</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="VerifyMandatoryFields">
-                  </a> <!-- VerifyMandatoryFields -->
-                  <span class="method-name">VerifyMandatoryFields</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-FunctionalSuite-class-passed -->
-          <div class="suite-FunctionalSuite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">webservice.tests.APITests</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="apiInvalidParameterTest(TestUser)">
-                  </a> <!-- apiInvalidParameterTest(TestUser) -->
-                  <span class="method-name">apiInvalidParameterTest</span>
-                  <span class="parameters">(TestUser)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="apiSuccessfulResponseTest(coding.challenge.login@upgrade.com)">
-                  </a> <!-- apiSuccessfulResponseTest(coding.challenge.login@upgrade.com) -->
-                  <span class="method-name">apiSuccessfulResponseTest</span>
-                  <span class="parameters">(coding.challenge.login@upgrade.com)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="apiValidStatusResponseTest(coding.challenge.login@upgrade.com)">
-                  </a> <!-- apiValidStatusResponseTest(coding.challenge.login@upgrade.com) -->
-                  <span class="method-name">apiValidStatusResponseTest</span>
-                  <span class="parameters">(coding.challenge.login@upgrade.com)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-FunctionalSuite-class-passed -->
         </div> <!-- panel FunctionalSuite -->
         <div panel-name="test-xml-FunctionalSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\GitExcercises\Upgrade\UpgradeFramework\automation.test\TestNGSuite.xml</span>
+            <span class="header-content">C:\GitExcercises\Upgrade\JavaProject\automation.test\TestNGSuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -228,18 +151,6 @@
       &lt;class name=&quot;webapp.tests.CreateAndValidateOfferTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Functional-CreateAndValidateOfferTests --&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Functional-CheckYourRateMandatoryFieldTests&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;webapp.tests.CheckYourRateTests&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Functional-CheckYourRateMandatoryFieldTests --&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Functional-APITests&quot;&gt;
-    &lt;parameter name=&quot;userNameValid&quot; value=&quot;coding.challenge.login@upgrade.com&quot;/&gt;
-    &lt;parameter name=&quot;userNameInvalid&quot; value=&quot;TestUser&quot;/&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;webservice.tests.APITests&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Functional-APITests --&gt;
 &lt;/suite&gt; &lt;!-- FunctionalSuite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -252,12 +163,6 @@
             <ul>
               <li>
                 <span class="test-name">Functional-CreateAndValidateOfferTests (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">Functional-CheckYourRateMandatoryFieldTests (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">Functional-APITests (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -283,36 +188,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(6);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'CreateOfferTest')
 data.setCell(0, 2, 'webapp.tests.CreateAndValidateOfferTests')
-data.setCell(0, 3, 30910);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ValidateOfferTests')
-data.setCell(1, 2, 'webapp.tests.CreateAndValidateOfferTests')
-data.setCell(1, 3, 21353);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'apiInvalidParameterTest')
-data.setCell(2, 2, 'webservice.tests.APITests')
-data.setCell(2, 3, 6135);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'apiSuccessfulResponseTest')
-data.setCell(3, 2, 'webservice.tests.APITests')
-data.setCell(3, 3, 4002);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'apiValidStatusResponseTest')
-data.setCell(4, 2, 'webservice.tests.APITests')
-data.setCell(4, 3, 1655);
-data.setCell(5, 0, 5)
-data.setCell(5, 1, 'VerifyMandatoryFields')
-data.setCell(5, 2, 'webapp.tests.CheckYourRateTests')
-data.setCell(5, 3, 573);
+data.setCell(0, 3, 55396);
 window.suiteTableData['FunctionalSuite']= { tableData: data, tableDiv: 'times-div-FunctionalSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 55 seconds</span>
               <div id="times-div-FunctionalSuite">
               </div> <!-- times-div-FunctionalSuite -->
             </div> <!-- times-div -->
@@ -345,57 +230,16 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">CreateOfferTest(2500)</span>
-                <span class="method-start">14903 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">ValidateOfferTests</span>
-                <span class="method-start">45844 ms</span>
+                <span class="method-start">105 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">67226 ms</span>
-              </div> <!-- configuration-test after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">webapp.tests.CheckYourRateTests</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">67982 ms</span>
-              </div> <!-- configuration-test before -->
-              <div class="test-method">
-                <span class="method-name">VerifyMandatoryFields</span>
-                <span class="method-start">78141 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-test after">
-                <span class="method-name">afterTest</span>
-                <span class="method-start">78724 ms</span>
-              </div> <!-- configuration-test after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">webservice.tests.APITests</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">beforeTest</span>
-                <span class="method-start">79398 ms</span>
-              </div> <!-- configuration-test before -->
-              <div class="test-method">
-                <span class="method-name">apiInvalidParameterTest(TestUser)</span>
-                <span class="method-start">79405 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">apiSuccessfulResponseTest(coding.challenge.login@upgrade.com)</span>
-                <span class="method-start">85555 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">apiValidStatusResponseTest(coding.challenge.login@upgrade.com)</span>
-                <span class="method-start">89567 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-test after">
-                <span class="method-name">afterTest</span>
-                <span class="method-start">91226 ms</span>
+                <span class="method-start">55517 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
 </html>

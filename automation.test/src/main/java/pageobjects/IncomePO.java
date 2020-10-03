@@ -1,45 +1,69 @@
 package pageobjects;
 
-import java.net.MalformedURLException;
-
-import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class IncomePO {
 	
-	private WebElement elem;
-	private WebDriver driver;
-	private String continueButtonText="//button[text()='Continue']";
+	@FindBy (name= "borrowerIncome")
+	private WebElement AnnualIncome;
 	
-	public IncomePO(WebDriver driver) throws MalformedURLException
+	@FindBy (name = "borrowerAdditionalIncome")
+	private WebElement AdditionalIncome;
+	
+	@FindBy (xpath = "//button[text()='Continue']")
+	private WebElement IncomeContinueButton;
+		
+	public WebDriver driver;
+	private WebDriverWait wait;
+	
+	public IncomePO(WebDriver driver)
 	{
 		this.driver = driver;
-		waitForElement(continueButtonText);
+		wait = new WebDriverWait(driver,30);
+		PageFactory.initElements(driver, this);
 	}
 	
-
-	public WebElement getAnnualIncomeTextLocator(){
-		elem = driver.findElement(By.name("borrowerIncome"));
-		return elem;
-	}
-	
-	public WebElement getAdditionalIncomeTextLocator(){
-		elem = driver.findElement(By.name("borrowerAdditionalIncome"));
-		return elem;
-	}
-	
-	public WebElement getIncomeContinueButtonLocator(){
-		elem = driver.findElement(By.xpath(continueButtonText));
-		return elem;
-	}
-	
-	public void waitForElement(String Text)
+	public WebElement AnnualIncome()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Text)));
+		return AnnualIncome;
 	}
+	
+	public WebElement AdditionalIncome()
+	{
+		return AdditionalIncome;
+	}
+	
+	public WebElement IncomeContinueButton()
+	{
+		return IncomeContinueButton;
+	}
+	
+	public void setAnnualIncome(String income)
+	{
+		AnnualIncome.sendKeys(income);
+	}
+	
+	public void setAdditionalIncome(String addIncome)
+	{
+		AdditionalIncome.sendKeys(addIncome);
+	}
+	
+	public void clickIncomeContinueButton()
+	{
+		IncomeContinueButton.sendKeys(Keys.ENTER);
+	}
+	
+	public void waitForElement()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(IncomeContinueButton));
+	}
+	
+	
 	
 }

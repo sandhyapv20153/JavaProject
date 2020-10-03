@@ -1,80 +1,137 @@
 package pageobjects;
 
-import java.net.MalformedURLException;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasicInformationPO {
 	
-	private WebElement elem;
-	private WebDriver driver;
-	private String continueButtonText="//*[@data-auto='continuePersonalInfo']";
+	@FindBy(xpath = "//input[@name='jointApplicationToggle']/../div[text()='Individual']" )
+	private WebElement IndividualRadioButton;
 	
-	public BasicInformationPO(WebDriver driver) throws MalformedURLException
-	{
-		this.driver = driver;
-		waitForElement(continueButtonText);
-	}
+	@FindBy(xpath = "//input[@name='jointApplicationToggle']/../div[text()='Joint Application']" )
+	private WebElement JointApplicationRadioButton;
+		
+	@FindBy(name = "borrowerFirstName" )
+	private WebElement FirstName;
 	
+	@FindBy(name = "borrowerLastName" )
+	private WebElement LastName;
+	
+	@FindBy(name = "borrowerStreet" )
+	private WebElement HomeAddress;
+	
+	@FindBy(name = "borrowerCity" )
+	private WebElement City;
+	
+	@FindBy(name = "borrowerState" )
+	private WebElement State;
+	
+	@FindBy(name = "borrowerZipCode")
+	private WebElement ZipCode;
+	
+	@FindBy(name = "borrowerDateOfBirth" )
+	private WebElement DOB;
+	
+	@FindBy(xpath = "//*[@data-auto='continuePersonalInfo']" )
+	private WebElement BasicInfoContinue;
+		
+	public WebDriver driver;
+	private WebDriverWait wait;
+	
+    public BasicInformationPO(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver,30);
+        PageFactory.initElements(driver, this);
+        waitForElement();
+    } 
 
-	public WebElement getIndividualRadioLocator(){
-		elem = driver.findElement(By.xpath("//input[@name='jointApplicationToggle']/../div[text()='Individual']"));
-		return elem;
+	public WebElement IndividualRadioButton(){
+		return IndividualRadioButton;
 	}
 	
-	public WebElement getJointApplicationRadioLocator(){
-		elem = driver.findElement(By.xpath("//input[@name='jointApplicationToggle']/../div[text()='Joint Application']"));
-		return elem;
+	public WebElement JointApplicationRadioButton(){
+		return JointApplicationRadioButton;
 	}
 	
-	public WebElement getFirstNameTextLocator(){
-		elem = driver.findElement(By.name("borrowerFirstName"));
-		return elem;
+	public WebElement FirstName(){
+		return FirstName;
 	}
 	
-	public WebElement getLastNameTextLocator(){
-		elem = driver.findElement(By.name("borrowerLastName"));
-		return elem;
+	public WebElement LastName(){
+		return LastName;
 	}
 	
-	public WebElement getHomeAddressTextLocator(){
-		elem = driver.findElement(By.name("borrowerStreet"));
-		return elem;
+	public WebElement HomeAddress(){
+		return HomeAddress;
 	}
 	
-	public WebElement getCityTextLocator(){
-		elem = driver.findElement(By.name("borrowerCity"));
-		return elem;
+	public WebElement City(){
+		return City;
 	}
 	
-	public WebElement getStateTextLocator(){
-		elem = driver.findElement(By.name("borrowerState"));
-		return elem;
+	public WebElement State(){
+		return State;
 	}
 	
-	public WebElement getZipCodeTextLocator(){
-		elem = driver.findElement(By.name("borrowerZipCode"));
-		return elem;
+	public WebElement ZipCode(){
+		return ZipCode;
 	}
 	
-	public WebElement getDOBTextLocator(){
-		elem = driver.findElement(By.name("borrowerDateOfBirth"));
-		return elem;
+	public WebElement DOB(){
+		return DOB;
 	}
 	
-	public WebElement getBasicInfoContinueButtonLocator(){
-		elem = driver.findElement(By.xpath(continueButtonText));
-		return elem;
+	public WebElement BasicInfoContinue(){
+		return BasicInfoContinue;
 	}
 	
-	public void waitForElement(String Text)
+	public void setFirstName(String fName)
 	{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Text)));
+		FirstName.sendKeys(fName);
+	}
+	
+	public void setLastName(String lName)
+	{
+		LastName.sendKeys(lName);
+	}
+	
+	public void setHomeAddress(String hAddress)
+	{
+		HomeAddress.sendKeys(hAddress);
+	}
+	
+	public void setCity(String city)
+	{
+		City.sendKeys(city);
+	}
+	
+	public void setState(String state)
+	{
+		State.sendKeys(state);
+	}
+	
+	public void setZipCode(String zipCode)
+	{
+		ZipCode.sendKeys(zipCode);
+	}
+	
+	public void setDOB(String dob)
+	{
+		DOB.sendKeys(dob);
+	}
+	
+	public void clickBasicInfoContinue()
+	{
+		BasicInfoContinue.click();
+	}
+	
+	public void waitForElement()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(BasicInfoContinue));
 	}
 	
 }

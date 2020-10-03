@@ -1,53 +1,73 @@
 package pageobjects;
 
-import java.net.MalformedURLException;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class CheckYourRatePO {
 	
-	private WebElement elem;
-	private WebDriver driver;
-	private String checkYourRateButtonLocator="//*[@data-auto='CheckYourRate']";
+	@FindBy (name= "desiredAmount")
+	private WebElement LoanAmount;
 	
-	public CheckYourRatePO(WebDriver driver) throws MalformedURLException
+	@FindBy (xpath= "//select[@data-auto='dropLoanPurpose']")
+	private WebElement LoanPurpose;
+	
+	@FindBy (xpath ="//*[@data-auto='CheckYourRate']")
+	private WebElement CheckYourRateButton;
+	
+	
+	private WebDriver driver;
+	private WebDriverWait wait;
+	
+	
+	public CheckYourRatePO(WebDriver driver)
 	{
 		this.driver = driver;
-		waitForElement(checkYourRateButtonLocator);
+		wait = new WebDriverWait(driver,30);
+		PageFactory.initElements(driver, this);
+		waitForElement();
 	}
 	
-
-	public WebElement getLoanAmountTextBoxLocator(){
-		elem = driver.findElement(By.name("desiredAmount"));
-		return elem;
-	}
-	
-	public Select getLoanPurposeDropDownLocator(){
-		
-		  Select elemDropdown = new Select(driver.findElement(By.xpath("//select[@data-auto='dropLoanPurpose']"))); 
-		  return elemDropdown;
-	}
-	
-	public WebElement getCheckYourRateButtonLocator(){
-		elem = driver.findElement(By.xpath(checkYourRateButtonLocator));
-		return elem;
-	}
-	
-	
-	public WebElement getMandatoryFieldTextLocator(){
-		elem = driver.findElement(By.xpath("//*[text()='This field is required']"));
-		return elem;
-	}
-	
-	public void waitForElement(String Text)
+	public WebElement LoanAmount()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Text)));
+		return LoanAmount;
 	}
+	
+	public Select LoanPurpose() {
+		Select elemDropdown = new Select(LoanPurpose);
+		return elemDropdown;
+	}
+	
+	public WebElement CheckYourRateButton()
+	{
+		return CheckYourRateButton;
+	}
+	
+	public void setLoanAmount(String loanAmt)
+	{
+		LoanAmount.sendKeys(loanAmt);
+	}
+	
+	public void setLoanPurpose(String loanPurposeText)
+	{
+		LoanPurpose().selectByVisibleText(loanPurposeText);
+	}
+	
+	public void clickCheckYourRateButton()
+	{
+		CheckYourRateButton.click();
+	}
+	
+	public void waitForElement()
+	{
+		//WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(CheckYourRateButton));
+	}
+	
 }

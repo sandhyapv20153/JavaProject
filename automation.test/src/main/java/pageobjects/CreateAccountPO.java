@@ -1,52 +1,84 @@
 package pageobjects;
 
-import java.net.MalformedURLException;
-
-import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateAccountPO {
 	
-	private WebElement elem;
-	private WebDriver driver;
-	private String accountButtonLocatorText="//button[@data-auto='submitPersonalInfo']";
+	@FindBy (name = "username")
+	private WebElement UserName;
 	
-	public CreateAccountPO(WebDriver driver) throws MalformedURLException
+	@FindBy( name = "password")
+	private WebElement Password;
+	
+	@FindBy ( xpath = "//*[@name='agreements']/../div")
+	private WebElement Checkbox;
+	
+	@FindBy ( xpath ="//button[@data-auto='submitPersonalInfo']")
+	private WebElement CreateAccountButton;
+		
+	public WebDriver driver;
+	public WebDriverWait wait;
+	
+	
+	public CreateAccountPO(WebDriver driver)
 	{
 		this.driver = driver;
-		waitForElement(accountButtonLocatorText);
+		wait = new WebDriverWait(driver,30);
+		PageFactory.initElements(driver, this);
 	}
 	
-
-	public WebElement getUserNameTextLocator(){
-		elem = driver.findElement(By.name("username"));
-		return elem;
-	}
-	
-	public WebElement getPasswordTextLocator(){
-		elem = driver.findElement(By.name("password"));
-		return elem;
-	}
-	
-	public WebElement getCheckboxLocator(){
-		elem = driver.findElement(By.xpath("//*[@name='agreements']/../div"));
-		return elem;
-	}
-	
-	public WebElement getCreateAccountButtonLocator(){
-		elem = driver.findElement(By.xpath(accountButtonLocatorText));
-		return elem;
-	}
-	
-	public void waitForElement(String Text)
+	public WebElement UserName()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Text)));
+		return UserName;
 	}
 	
+	public WebElement Password()
+	{
+		return Password;
+	}
 	
+	public WebElement Checkbox()
+	{
+		return Checkbox;
+	}
+	
+	public WebElement CreateAccountButton()
+	{
+		return CreateAccountButton;
+	}
+	
+	public void setUserName(String uName) {
+		UserName.sendKeys(uName);
+	}
+	
+	public void setPassword(String passWord)
+	{
+		Password.sendKeys(passWord);
+	}
+	
+	public void clickCheckbox()
+	{
+		Checkbox.click();
+	}
+	
+	public void clickCreateAccountButton()
+	{
+		CreateAccountButton.sendKeys(Keys.ENTER);
+	}
+	
+	public void waitForCheckBox()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(Checkbox));
+	}
+	
+	public void waitForElements() {
+		wait.until(ExpectedConditions.elementToBeClickable(CreateAccountButton));
+	}
 	
 }

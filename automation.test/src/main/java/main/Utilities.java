@@ -14,38 +14,12 @@ import org.json.JSONObject;
 
 
 public class Utilities {
-	
-	
-	
+		
 	public static UUID UUIDGenerator()
 	{
 		 UUID uid = UUID.fromString("11200000-8cf0-12bd-b23e-10b96e4ef00d");     
 		 return uid.randomUUID();
 
-	}
-	
-	public static void waitFor()
-	{
-
-		try
-		{
-			Thread.sleep(5000);
-		}catch(InterruptedException e)
-		{
-			
-		}
-	}
-	
-	public static void waitFor(Long timeValue)
-	{
-
-		try
-		{
-			Thread.sleep(timeValue);
-		}catch(InterruptedException e)
-		{
-			
-		}
 	}
 	
 	public static int randomGenerator()

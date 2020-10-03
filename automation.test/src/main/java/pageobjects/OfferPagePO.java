@@ -5,68 +5,138 @@ import java.net.MalformedURLException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OfferPagePO {
 	
-	private WebElement elem;
-	private WebDriver driver;
-	private String userLoanAmountLocatorText="//*[@data-auto='userLoanAmount']";
-	private String hamburgerMenuLocatorText="//*[@id='header-nav-toggle']/../*[@class='header-nav__toggle']";
+	@FindBy(xpath ="//*[@data-auto='userLoanAmount']")
+	private WebElement LoanAmount;
 	
-	public OfferPagePO(WebDriver driver) throws MalformedURLException
+	@FindBy(xpath= "//*[@data-auto='defaultMonthlyPayment']")
+	private WebElement MonthlyPaymentAmt;
+	
+	@FindBy(xpath="//*[@data-auto='defaultLoanTerm']")
+	private WebElement Term;
+	
+	@FindBy(xpath="//*[@data-auto='defaultLoanInterestRate']")
+	private WebElement InterestRate;
+	
+	@FindBy(xpath="//*[@data-auto='defaultMoreInfoAPR']/div")
+	private WebElement APR;
+	
+	@FindBy(xpath="//*[@data-auto='getDefaultLoan']")
+	private WebElement SelectButton;
+	
+	@FindBy(xpath = "//*[@id='header-nav-toggle']/../*[@class='header-nav__toggle']")
+	private WebElement HamburgerMenu;
+	
+	@FindBy(xpath="//a[text()='Sign Out']")
+	private WebElement SignOut;
+		
+	public WebDriver driver;
+	public WebDriverWait wait;
+	
+	public OfferPagePO(WebDriver driver)
 	{
 		this.driver = driver;
-		waitForElement(userLoanAmountLocatorText);
-		waitForElement(hamburgerMenuLocatorText);
+		wait = new WebDriverWait(driver,120);
+		PageFactory.initElements(driver, this);
+		waitForElements();
 	}
 	
-
-	public WebElement getLoanAmountLocator(){
-		elem = driver.findElement(By.xpath(userLoanAmountLocatorText));
-		return elem;
-	}
-	
-	public WebElement getMonthlyPaymentAmtLocator(){
-		elem = driver.findElement(By.xpath("//*[@data-auto='defaultMonthlyPayment']"));
-		return elem;
-	}
-	
-	public WebElement getTermLocator(){
-		elem = driver.findElement(By.xpath("//*[@data-auto='defaultLoanTerm']"));
-		return elem;
-	}
-	
-	public WebElement getInterestRateLocator(){
-		elem = driver.findElement(By.xpath("//*[@data-auto='defaultLoanInterestRate']"));
-		return elem;
-	}
-	
-	public WebElement getAPRLocator(){
-		elem = driver.findElement(By.xpath("//*[@data-auto='defaultMoreInfoAPR']/div"));
-		return elem;
-	}
-	
-	public WebElement getSelectButtonLocator(){
-		elem = driver.findElement(By.xpath("//*[@data-auto='getDefaultLoan']"));
-		return elem;
-	}
-	
-	public WebElement getHamburgerMenuLocator(){
-		elem = driver.findElement(By.xpath(hamburgerMenuLocatorText));
-		return elem;
-	}
-	
-	public WebElement getSignOutLocator(){
-		elem = driver.findElement(By.xpath("//a[text()='Sign Out']"));
-		return elem;
-	}
-	
-	public void waitForElement(String Text)
+	public WebElement LoanAmount()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Text)));
+		return LoanAmount;
+	}
+	
+	public WebElement MonthlyPaymentAmt()
+	{
+		return MonthlyPaymentAmt;
+	}
+	
+	public WebElement Term()
+	{
+		return Term;
+	}
+	
+	public WebElement InterestRate()
+	{
+		return InterestRate;
+	}
+	
+	public WebElement APR()
+	{
+		return APR;
+	}
+	
+	public WebElement SelectButton()
+	{
+		return SelectButton;
+	}
+	
+	public WebElement HamburgerMenu()
+	{
+		return HamburgerMenu;
+	}
+	
+	public WebElement SignOut()
+	{
+		return SignOut;
+	}
+	
+	public String getLoanAmount()
+	{
+		return LoanAmount.getText();
+	}
+	
+	public String getMonthlyPaymentAmt()
+	{
+		return MonthlyPaymentAmt.getText();
+	}
+	
+	public String getTerm()
+	{
+		return Term.getText();
+	}
+	
+	public String getInterestRate()
+	{
+		return InterestRate.getText();
+	}
+	
+	public String getAPR()
+	{
+		return APR.getText();
+	}
+	
+	public void clickSelectButton()
+	{
+		SelectButton.click();
+	}
+	
+	public void clickHamburgerMenu()
+	{
+		HamburgerMenu.click();
+	}
+	
+	public void clickSignOut()
+	{
+		SignOut.click();
+	}
+	
+	
+	public void waitForElements()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(SelectButton));
+		wait.until(ExpectedConditions.elementToBeClickable(HamburgerMenu));
+	}
+	
+	public void waitForSignOut()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(SignOut));
 	}
 	
 	

@@ -3,6 +3,8 @@
  */
 package main;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class Browser{
 	
-	protected WebDriver browserDriver =null;
+	protected static WebDriver browserDriver =null;
 	protected String browserName;
 	protected WebElement elem;
 	
@@ -29,6 +31,7 @@ public class Browser{
 		{
 			System.setProperty("webdriver.chrome.driver",Constants.CHROME_DRIVER_PATH);
 			browserDriver = new ChromeDriver();
+			browserDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
 		}
 		else
